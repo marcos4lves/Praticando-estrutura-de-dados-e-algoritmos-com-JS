@@ -1,0 +1,12 @@
+{
+  "name": "js-data-structures-and-algorithms",
+  "version": "1.0.0",
+  "description": "\"Algoritmos e estrutura de dados com JavaScript\"",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

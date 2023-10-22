@@ -5,10 +5,10 @@ console.log(array[array.length -1])
 array=[]
 console.log(array.length) */
 
-// STACK: Pilha que utiliza o princípio LIFO 
+// STACK: Pilha que utiliza o princípio LIFO  (Last In, First Out), o último elemento inserido é o primeiro a ser retirado.
 // A SEGUIR STACK ARRAY 
 
-/* class StackArray {
+export class StackArray {
   constructor() {
     this.items = [];
   }
@@ -46,7 +46,7 @@ console.log(array.length) */
   }
 }
 
-const stack = new StackArray()
+/* const stack = new StackArray()
 console.log(stack.isEmpty())
 stack.push(5)
 stack.push(8)
@@ -58,7 +58,7 @@ console.log(stack.peek()) */
 
 // A SEGUIR OUTRO TIPO DE STACK COM CONTADOR DIFERENÇA QUE RECEBE UM ELEMENTO POR VEZ E É BASEADO EM OBJETO
 
-class Stack {
+export class Stack {
   constructor() {
     this.count = 0;
     this.items = {};
@@ -95,6 +95,7 @@ class Stack {
   }
 
   clear() {
+    // Comportamento LIFO -> primeiro a entrar é o primeiro a sair.
     /* while (!this.isEmpty()) {
         this.pop();
       } */
@@ -114,9 +115,15 @@ class Stack {
   }
 }
 
-let stack = new Stack()
-stack.push(5)
-stack.push(8)
-console.log(stack)
-console.log(stack.size())
-console.log(stack.isEmpty())
+/* let stack2 = new Stack()
+stack2.push(5)
+stack2.push(8)
+console.log(stack2)
+console.log(stack2.size())
+console.log(stack2.isEmpty())
+console.log(Object.getOwnPropertyNames(stack2))
+console.log(Object.keys(stack2))
+console.log(stack2.items)
+
+console.log(stack2.pop())
+console.log(stack2) */
