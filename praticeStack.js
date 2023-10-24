@@ -1,11 +1,4 @@
-/* let array =[1,23,15,18,19,32]
-console.log(array.length)
-console.log(array===0)
-console.log(array[array.length -1])
-array=[]
-console.log(array.length) */
-
-// STACK: Pilha que utiliza o princípio LIFO  (Last In, First Out), o último elemento inserido é o primeiro a ser retirado.
+// STACK: Pilha que utiliza o princípio LIFO  (Last In First Out), o último elemento inserido é o primeiro a ser retirado.
 // A SEGUIR STACK ARRAY 
 
 export class StackArray {

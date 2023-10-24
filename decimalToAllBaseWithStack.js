@@ -6,7 +6,7 @@ function decimalToAllBase (decNumber, base){
     
     let number = decNumber
     let rem;
-    let baseString ='';
+    let baseString = '';
 
     while (number > 0){
         rem = Math.floor(number % base)

@@ -1,9 +1,8 @@
 import { StackArray } from './praticeStack.js'
 
-
 function decimalToBinary(decNumber){
     const remStack = new StackArray()
-    let number =decNumber
+    let number = decNumber
     let rem;
     let binaryString= ''
     
