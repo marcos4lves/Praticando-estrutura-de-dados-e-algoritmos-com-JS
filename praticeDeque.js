@@ -15,13 +15,13 @@ class Deque{
         else if(this.lowestCount > 0) {
             this.lowestCount--
             this.items[this.lowestCount] = element
-        } else {
+        } else { // exemplo [A,B,C,D, count]  count = 4, numero de elementos = 4, indice de 'D' = 3,
             for (let i = this.count; i > 0; i--) {
                 this.items[i] = this.items [i - 1]
-            }
+            } // lembre-se que o count sempre está uma contagem a frente pois a adição no final o incrementa. então está pegando a posição vazia já incrementada pelo addBack e está armazenando o valor do ultimo elemento, no caso preenchido. é como se ele estivesse sendo empurrado para trás.
             this.count++
             this.lowestCount = 0
-            this.items[0] = element
+            this.items[0] = element // antes dessa linha de código o primeiro elemento estava duplicado [A,A,B,C,D]
         }
     }
 
@@ -51,14 +51,14 @@ class Deque{
     } //mesmo método do .pop() do Stack
 
     peekFront() {
-        if (this.isEmpty){
+        if (this.isEmpty()){
             undefined
         }
         return this.items[this.lowestCount]
     }
 
     peekBack() {
-        return this.item[this.items.length -1]
+        return this.items[this.count -1] // ocerto é count e não length, length é um método para strings.
     }
 
     isEmpty() {
@@ -106,4 +106,10 @@ console.log(deque.toString())
 deque.removeFront()
 console.log(deque.toString())
 deque.addFront('Wm')
+console.log(deque.toString())
+console.log(deque.peekBack())
+console.log(deque.peekFront())
+console.log(deque.size())
+console.log(deque.clear())
+console.log(deque.size())
 console.log(deque.toString())
