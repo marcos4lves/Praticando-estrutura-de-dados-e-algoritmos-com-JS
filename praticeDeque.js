@@ -1,7 +1,7 @@
 // DEQUE: fila de duas pontas (double-ended queue); fila especial que permite remover elementos do final ou da frente da fila.
 // Utiliza tanto FIFO (First In First Out) quanto LIFO (Last In First Out)
 
-class Deque{
+export default class Deque{
     constructor() {
         this.count = 0
         this.lowestCount = 0

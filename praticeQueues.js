@@ -1,7 +1,7 @@
 // QUEUE:Fila é uma coleção ordenada de itens baseada em FIFO (First In First Out), primeiro que entra é o primeiro que sai.
 // também conhecido como first-come-first-served.
 
-class Queue{
+export default class Queue{
     constructor() {
         this.count = 0
         this.lowestCount = 0
@@ -59,7 +59,7 @@ class Queue{
 
 }
 
-const queue = new Queue ()
+/* const queue = new Queue ()
 console.log(queue.isEmpty())
 
 queue.enqueue('John')
@@ -75,4 +75,4 @@ console.log('Remove:')
 console.log(queue.dequeue())
 console.log(queue.dequeue())
 console.log('----')
-console.log(queue.toString())
+console.log(queue.toString()) */
