@@ -91,7 +91,7 @@ export default class Deque{
 
 }
 
-const deque = new Deque()
+/* const deque = new Deque()
 console.log(deque.isEmpty())
 deque.addBack('Carol')
 deque.addBack('Camila')
@@ -112,4 +112,4 @@ console.log(deque.peekFront())
 console.log(deque.size())
 console.log(deque.clear())
 console.log(deque.size())
-console.log(deque.toString())
+console.log(deque.toString()) */
