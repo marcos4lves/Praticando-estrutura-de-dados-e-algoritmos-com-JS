@@ -32,12 +32,17 @@ export default class LinkedList {
             if (index === 0) {
                 this.head = current.next // se estiver deletando o primeiro o head toma valor do next 
             } else {
-                let previous
+                /* let previous
                 for (let i = 0; i < index; i++) { // para no indice anterior ou index  entao se for deletar o index 4 para no 3
                     // Quando chegamos ao índice especificado para a remoção, current estará no nó que queremos remover, e previous estará no nó anterior a ele, e current.next será o nó que iremos conectar com o previous.next, eliminando current.
                     previous = current // valor do nó  ( 3º no caso do exemplo comentado)
                     current = current.next // valor do próximo nó ( 4º no caso do exemplo) 
                 }
+                previous.next = current.next */
+
+                // refatorado pós método getElementAt
+                const previous = this.getElementAt(index - 1)
+                current = previous.next
                 previous.next = current.next
             }
             this.count-- // diminuiu a contagem pq deletou obvio.
@@ -45,11 +50,32 @@ export default class LinkedList {
             }
     return undefined
     }
+
+    getElementAt(index) {
+        if (index >= 0 && index <= this.count) {
+            let current = this.head
+            for (let i = 0; i < index && current != null; i++) {
+                current = current.next
+            }
+            return current
+        }
+        return undefined
+    }
+    
 }
 
 const list = new LinkedList()
 list.push(15)
 console.log(list)
 list.push(10)
+list.push(35)
+list.push(12)
+list.push(26)
+list.push(33)
+list.push(42)
+list.push(56)
+console.log(list)
+console.log(list.getElementAt(4))
+list.removeAt(4)
 console.log(list)
 
