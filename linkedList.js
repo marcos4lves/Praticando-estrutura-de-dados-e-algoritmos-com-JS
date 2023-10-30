@@ -1,6 +1,8 @@
 import defaultEquals from './util.js'
 import Node from './node.js'
 
+// Lista cadeada
+
 export default class LinkedList {
     constructor(equalsFn = defaultEquals) {
         this.count = 0 // Contador de elementos
@@ -61,7 +63,69 @@ export default class LinkedList {
         }
         return undefined
     }
+
+    insert(element, index) {
+        if (index >= 0 && index <= this.count) {
+            const node = new Node(element)
+            if (index === 0) {
+                const current = this.head
+                node.next = current 
+                this.head = node
+                //está criando um novo node e colocando o head como o next dele pq você inserir no indice 0
+            } else {
+                const previous = this.getElementAt(index - 1)
+                const current = previous.next
+                node.next = current
+                previous.next = node
+                // o node criado se torna o next do index anterior e o next desse node criado recebe o next do anterior
+            }
+            this.count++
+            return true
+        }
+        return false
+    }
     
+    indexOf(element) {
+        let current = this.head
+        for (let i = 0; i < this.count && current != null; i++) {
+            if (this.equalsFn(element, current.element)) {
+                return i
+            }
+            current = current.next
+        }
+        return -1
+    }
+
+    remove(element) {
+        const index = this.indexOf(element)
+        return this.removeAt(index)
+    }
+
+    size() {
+        return this.count
+    }
+
+    isEmpty() {
+        return this.size() === 0
+    }
+
+    getHead() {
+        return this.head
+    }
+
+    toString() {
+        if (this.head == null) {
+            return ''
+        }
+        let objString =`${this.head.element}`
+        let current = this.head.next
+        for (let i = 0; i < this.size() && current != null; i++) {
+            objString = `${objString}, ${current.element}`
+            current = current.next
+        }
+        return objString
+    }
+
 }
 
 const list = new LinkedList()
@@ -78,4 +142,5 @@ console.log(list)
 console.log(list.getElementAt(4))
 list.removeAt(4)
 console.log(list)
+console.log(list.toString())
 
