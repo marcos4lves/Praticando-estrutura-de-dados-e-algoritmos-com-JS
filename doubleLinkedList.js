@@ -21,19 +21,19 @@ class DoublyLinkedList extends LinkedList {
         if (index >= 0 && index <= this.count) {
             const node = new DoublyNode(element)
             let current = this.head 
-            if (index === 0) { // inserção no início da lista
-                if (this.head == null) { // caso especial de lista vazia
+            if (index === 0) {
+                if (this.head == null) {
                     this.head = node
                     this.tail = node
-                } else { // caso que já exista elementos na lista e quer colocar um elemento no index 0
-                    node.next = this.head // o next do node criado será o antigo head ou seja o nó do index 0
-                    current.prev = node // o nó atual.prev aponta pro nó criado agora
-                    this.head = node  // atualiza o head apontando para esse nó criado agora, tornando-o o primeiro
-                    // atualiza o next desse novo nó criado para apontar para o antigo primeiro nó
+                } else { 
+                    node.next = this.head
+                    current.prev = node
+                    this.head = node
+                    
                 }
             }
-            else if (index === this.count) { // inserção no final da lista
-                current = this.tail // atualiza current para this.tail logo current passa a ser undefined
+            else if (index === this.count) {
+                current = this.tail
                 current.next = node
                 node.prev = current
                 this.tail = node
@@ -54,7 +54,7 @@ class DoublyLinkedList extends LinkedList {
     removeAt(index) {
         if (index >= 0 && index < this.count) {
             let current = this.head
-            if (index ===0) {
+            if (index === 0) {
                 this.head = current.next
                 if (this.count === 1) {
                     this.tail = undefined
@@ -76,5 +76,56 @@ class DoublyLinkedList extends LinkedList {
         }
         return undefined
     }
-}
 
+    indexOf(element) {
+        let current = this.head
+        let index = 0
+        while (current != null) {
+            if (this.equalsFn(element, current.element)) {
+                return index
+            }
+            index++
+            current = current.next
+        }
+        return -1
+    }
+
+    getHead() {
+        return this.head
+    }
+
+    getTail() {
+        return this.tail
+    }
+
+    clear() {
+        super.clear()
+        this.tail = undefined
+    }
+
+    toString() {
+        if (this.head == null) {
+            return ''
+        }
+        let objString = `${this.head.element}`
+        let current = this.head.next
+        while (current != null) {
+            objString = `${objString}, ${current.element}`
+            current = current.next
+        }
+        return objString
+    }
+
+    inverseToString() {
+        if (this.tail == null) {
+        return ''
+        }
+        let objString = `${this.tail.element}`
+        let previous = this.tail.prev
+        while (previous != null) {
+            objString = `${objString}, ${previous.element}`
+            previous = previous.prev
+        }
+        return objString
+    }
+}
