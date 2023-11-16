@@ -1,7 +1,7 @@
 import defaultEquals from './util.js'
 import Node from './node.js'
 
-// Lista cadeada
+// Lista encadeada
 
 export default class LinkedList {
     constructor(equalsFn = defaultEquals) {

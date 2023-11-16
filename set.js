@@ -77,20 +77,57 @@ class Set {
         return unionSet
     } */
 
-    intersection(otherSet) {
+    intersection(otherSet) { // otimizamos o código a fim de diminuir o processamento adicionando otherset,bigger and small set e o laço condicional em seguido do método forEach, ao invés de um laço for.
         const intersectionSet = new Set()
         const values = this.values()
+        const otherValues = otherSet.values()
+        let biggerSet = values
+        let smallerSet = otherValues
+        /* 
         for (let i = 0; i < values.length; i++) {
             if (otherSet.has(values[i])) {
                 intersectionSet.add(values[i])
             }
+        } */
+        
+        if (otherValues.length - values.length > 0) {
+            biggerSet = otherValues
+            smallerSet = values
         }
+
+        smallerSet.forEach(value => {
+            if (biggerSet.includes(value)) {
+                intersectionSet.add(value)
+            }
+        })
+
         return intersectionSet
     }
 
-    
+    difference(otherSet) {
+        const  differenceSet = new Set ()
+        this.values().forEach(value => {
+            if(!otherSet.has(value)) {
+                differenceSet.add(value)
+            }
+        })
+        return differenceSet
+    }
 
-
+    isSubsetOf(otherSet) {
+        if (this.size() > otherSet.size()) {
+            return false
+        }
+        let isSubset = true
+        this.values().every(value => {
+            if (!otherSet.has(value)) {
+                isSubset = false
+                return false
+            }
+            return true
+        })
+        return isSubset
+    }
 }
 
 /* const set = new Set()
@@ -121,3 +158,18 @@ const intersectionAB = setA.intersection(setB)
 console.log(intersectionAB.values())
 const unionAB = setA.union(setB)
 console.log(unionAB.values())
+console.log(setA.difference(setB))
+
+const setC = new Set()
+setC.add(33)
+setC.add(22)
+setC.add(53)
+
+console.log(setC.isSubsetOf(setB))
+console.log(setC.isSubsetOf(setA))
+
+// outros meios de realizar os métodos união, intersecção e diferença (mas parece que o set tem que ser array)
+
+/* console.log(new Set ([...setA, ...setB]))
+console.log(new Set ([...setA].filter(x => setB.has(x))))
+console.log(new Set ([...setA].filter(x => !setB.has(x)))) */
