@@ -99,7 +99,7 @@ console.log(hash.get('Vinicius')) */
 
 // tratamento de exceções
 
-hash.put('Ygritte', 'ygritte@email.com') // hashCode = 4
+/* hash.put('Ygritte', 'ygritte@email.com') // hashCode = 4
 hash.put('Jonathan', 'jonathan@email.com') // hashCode = 5
 hash.put('Jamie', 'jamie@email.com') // hashCode = 5
 hash.put('Jack', 'jack@email.com') // hashCode = 7
@@ -111,7 +111,7 @@ hash.put('Sue', 'sue@email.com') // hashCode = 5
 hash.put('Aethelwulf', 'aethelwulf@email.com') // hashCode = 5
 hash.put('Sargeras', 'sargeras@email.com') // hashCode = 10
 
-console.log(hash.toString())
+console.log(hash.toString()) */
 
 // como se pode observa há conflito de hashCode no qual fica registrado o último adicionado
 // para resolver isso podemos usar encadeamento separado (separate chaining) ou sondagem liner(linear probing) e hashing duplo (double hashing)

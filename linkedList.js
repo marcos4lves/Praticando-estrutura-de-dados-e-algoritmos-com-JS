@@ -1,4 +1,4 @@
-import defaultEquals from './util.js'
+import { defaultEquals } from './util.js'
 import Node from './node.js'
 
 // Lista encadeada
@@ -128,7 +128,7 @@ export default class LinkedList {
 
 }
 
-const list = new LinkedList()
+/* const list = new LinkedList()
 list.push(15)
 console.log(list)
 list.push(10)
@@ -142,5 +142,5 @@ console.log(list)
 console.log(list.getElementAt(4))
 list.removeAt(4)
 console.log(list)
-console.log(list.toString())
+console.log(list.toString()) */
 
