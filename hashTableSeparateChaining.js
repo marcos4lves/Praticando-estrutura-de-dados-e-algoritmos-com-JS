@@ -4,6 +4,7 @@ import ValuePair from "./valuePair.js"
 import HashTable from './hashTable.js'
 
 // método que útiliza a técnica de encadeamento separada para tratar colisões do hashCode()
+// mas ainda assim observa-se que o hashCode() causa muitos conflitos por isso mudar refatorar com um novo código djb2HashCode() lá no arquivo HashTable.
 export default class HashTableSeparateChaining extends HashTable {
     constructor (toStrFn = defaultToString) {
         super()

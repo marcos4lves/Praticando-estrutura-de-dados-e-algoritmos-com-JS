@@ -1,5 +1,7 @@
+// O JavaScript possui classes de estruturas de dados nativas como é o caso do map-native que é basicamente o que fizemos aqui e em Dictionary.
+
 // Hashing consiste em encontrar um valor em uma estrutura de dados o mais rápido possível.
-// quando usamos uma função hash já saabemos em que posição o valor se encontra, portanto, podemos simplesmente o acessar.
+// quando usamos uma função hash já sabemos em que posição o valor se encontra, portanto, podemos simplesmente o acessar.
 // uma função de hash é uma função que dada uma key devolve o endereço em que o valor está na tabela.
 // um mapa Hash é o mesmo que uma tabela hash
 // HASH LOSE-LOSE : soma dos valores ASCII de cada caractere da chave.
@@ -7,6 +9,11 @@ import { defaultToString } from "./util.js"
 import ValuePair from "./valuePair.js"
 
 //As classes HashTable e Dictionary são muito parecidos. A diferença está no fato de que, na classe Dictionary, armazenamos o ValuePair na propriedade key de table (depois de ter sido transformado em uma string); na classe HashTable, geramos um número a partir da key (hash) e armazenamos o ValuePair na posição (ou propriedade) hash.
+
+// como se pode observar há conflito de hashCode no qual fica registrado o último adicionado
+// para resolver isso podemos usar encadeamento separado (separate chaining) ou sondagem linear(linear probing) e hashing duplo (double hashing)
+// porém há o custo maior de armazenagem: usa uma linkedList aonde se repetirá.
+// mas ainda assim observa-se que o hashCode() causa muitos conflitos por isso refatoramos com um novo código -> djb2HashCode() que está abaixo.
 
 export default class HashTable {
     constructor(toStrFn = defaultToString) {
@@ -113,6 +120,3 @@ hash.put('Sargeras', 'sargeras@email.com') // hashCode = 10
 
 console.log(hash.toString()) */
 
-// como se pode observa há conflito de hashCode no qual fica registrado o último adicionado
-// para resolver isso podemos usar encadeamento separado (separate chaining) ou sondagem liner(linear probing) e hashing duplo (double hashing)
-// porém há o custo maior de armazenagem: usa uma linkedList aonde se repetirá.

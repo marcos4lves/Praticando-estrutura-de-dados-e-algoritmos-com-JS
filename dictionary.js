@@ -1,3 +1,5 @@
+// O JavaScript possui classes de estruturas de dados nativas como é o caso do map-native que é basicamente o que fizemos aqui e em Hash Table.
+
 import { defaultToString } from './util.js'
 import ValuePair from './valuePair.js'
 
