@@ -72,7 +72,7 @@ export class Stack {
     return result;
   }
 
-  peek() {
+  peek() { // retona o topo da pilha -> na fila retorna o primeiro
     if (this.isEmpty()) {
       return undefined;
     }
@@ -108,15 +108,17 @@ export class Stack {
   }
 }
 
-/* let stack2 = new Stack()
+let stack2 = new Stack()
 stack2.push(5)
 stack2.push(8)
 console.log(stack2)
 console.log(stack2.size())
 console.log(stack2.isEmpty())
-console.log(Object.getOwnPropertyNames(stack2))
+/* console.log(Object.getOwnPropertyNames(stack2))
 console.log(Object.keys(stack2))
 console.log(stack2.items)
 
 console.log(stack2.pop())
 console.log(stack2) */
+
+console.log(stack2.toString())

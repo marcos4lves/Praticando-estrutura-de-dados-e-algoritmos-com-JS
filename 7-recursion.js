@@ -6,8 +6,8 @@ function factorialIterative(number) {
     return total
 }
 
-/* console.log(factorialIterative(5))
- *
+console.log(factorialIterative(5))
+
 
 function factorial(n) {
     //console.trace()
@@ -17,8 +17,8 @@ function factorial(n) {
     return n * factorial(n - 1)
 }
 
-/* console.log(factorial(5))
- */
+console.log(factorial(5))
+
 
 function fibonacciIterative(n) {
     if (n < 1) return 0
@@ -33,15 +33,15 @@ function fibonacciIterative(n) {
     }
     return fibN
 }
-/* console.log(fibonacciIterative(8))
- */
+console.log(fibonacciIterative(8))
+
 
 function fibonacci(n) {
     if (n < 1) return 0
     if (n <= 2) return 1
     return fibonacci(n - 1) + fibonacci(n - 2)
 }
-/* console.log(fibonacci(8)) */
+console.log(fibonacci(8))
 
 function fibonacciMemoization(n, memo = {}) {
     if (n <= 1) return n
@@ -54,6 +54,6 @@ function fibonacciMemoization(n, memo = {}) {
 
     return memo[n]
 }
-/* const resultMemoization = fibonacciMemoization(8);
-console.log(resultMemoization) */
+const resultMemoization = fibonacciMemoization(8);
+console.log(resultMemoization)
 
